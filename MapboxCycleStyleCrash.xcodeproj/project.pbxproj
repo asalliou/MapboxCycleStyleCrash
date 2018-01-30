@@ -14,6 +14,8 @@
 		7159E17E20208AA80090368F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7159E17C20208AA80090368F /* LaunchScreen.storyboard */; };
 		7159E18920208AA80090368F /* MapboxCycleStyleCrashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7159E18820208AA80090368F /* MapboxCycleStyleCrashTests.swift */; };
 		7159E19420208AA80090368F /* MapboxCycleStyleCrashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7159E19320208AA80090368F /* MapboxCycleStyleCrashUITests.swift */; };
+		7159E1A220208F210090368F /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7159E1A120208F210090368F /* Mapbox.framework */; };
+		7159E1A4202090000090368F /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7159E1A120208F210090368F /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7159E1A5202090000090368F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7159E1A4202090000090368F /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7159E17020208AA70090368F /* MapboxCycleStyleCrash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapboxCycleStyleCrash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7159E17320208AA80090368F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +63,7 @@
 		7159E18F20208AA80090368F /* MapboxCycleStyleCrashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapboxCycleStyleCrashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7159E19320208AA80090368F /* MapboxCycleStyleCrashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxCycleStyleCrashUITests.swift; sourceTree = "<group>"; };
 		7159E19520208AA80090368F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7159E1A120208F210090368F /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Carthage/Build/iOS/Mapbox.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7159E1A220208F210090368F /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +95,7 @@
 		7159E16720208AA70090368F = {
 			isa = PBXGroup;
 			children = (
+				7159E1A120208F210090368F /* Mapbox.framework */,
 				7159E17220208AA70090368F /* MapboxCycleStyleCrash */,
 				7159E18720208AA80090368F /* MapboxCycleStyleCrashTests */,
 				7159E19220208AA80090368F /* MapboxCycleStyleCrashUITests */,
@@ -135,6 +154,8 @@
 				7159E16C20208AA70090368F /* Sources */,
 				7159E16D20208AA70090368F /* Frameworks */,
 				7159E16E20208AA70090368F /* Resources */,
+				7159E1A5202090000090368F /* Embed Frameworks */,
+				7159E1A62020904C0090368F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -253,6 +274,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7159E1A62020904C0090368F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Mapbox.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7159E16C20208AA70090368F /* Sources */ = {
@@ -428,6 +466,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39PN4D43XK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MapboxCycleStyleCrash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.MapboxCycleStyleCrash;
@@ -443,6 +485,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39PN4D43XK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MapboxCycleStyleCrash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.MapboxCycleStyleCrash;
