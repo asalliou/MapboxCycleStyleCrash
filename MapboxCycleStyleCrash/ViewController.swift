@@ -10,24 +10,26 @@ import UIKit
 import Mapbox
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var mapView: MGLMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapView = MGLMapView(frame: view.bounds,
-                                 styleURL: MGLStyle.outdoorsStyleURL())
+        mapView.styleURL = URL(string: "mapbox://styles/asalliou/cj7rci3vidn2u2spdpgthstap")
         
         // Tint the ℹ️ button and the user location annotation.
         mapView.tintColor = .darkGray
-        
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // Set the map’s center coordinate and zoom level.
         mapView.setCenter(CLLocationCoordinate2D(latitude: 51.50713,
                                                  longitude: -0.10957),
                           zoomLevel: 13, animated: false)
-        view.addSubview(mapView)
-        
     }
+    
+    @IBAction func switchStyle(_ sender: Any) {
+        mapView.styleURL = URL(string: "mapbox://styles/asalliou/cjd02pgzg15th2rmi52xtwovh")
+    }
+    
 }
 
