@@ -24,7 +24,10 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSB-cR-Ri0">
                                 <rect key="frame" x="149" y="328.5" width="77" height="30"/>
-                                <state key="normal" title="Swith Style"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Swith Style">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="switchStyle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nht-3X-IHu"/>
                                 </connections>
@@ -43,6 +46,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="5RR-xs-omB" id="EtE-Wr-tal"/>
+                        <outlet property="switchButton" destination="LSB-cR-Ri0" id="6qI-9z-oCE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

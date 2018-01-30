@@ -9,14 +9,17 @@
 import UIKit
 import Mapbox
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MGLMapViewDelegate {
     
     @IBOutlet weak var mapView: MGLMapView!
+    @IBOutlet weak var switchButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
         mapView.styleURL = URL(string: "mapbox://styles/asalliou/cj7rci3vidn2u2spdpgthstap")
+        switchButton.isHidden = true
         
         // Tint the ℹ️ button and the user location annotation.
         mapView.tintColor = .darkGray
@@ -29,6 +32,12 @@ class ViewController: UIViewController {
     
     @IBAction func switchStyle(_ sender: Any) {
         mapView.styleURL = URL(string: "mapbox://styles/asalliou/cjd02pgzg15th2rmi52xtwovh")
+    }
+    
+    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+        print("didFinishLoading")
+        
+        switchButton.isHidden = false
     }
     
 }
